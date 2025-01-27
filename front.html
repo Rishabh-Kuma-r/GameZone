@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Galaxy - Your Ultimate Gaming Destination</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        :root {
+            --primary: #8b5cf6;
+            --secondary: #3b82f6;
+            --accent: #f43f5e;
+            --background: #0f172a;
+            --card-bg: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+        }
+
+        body {
+            /* background-color: var(--background); */
+            background-image: url("back.jpg");
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .nav-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.75rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .hero {
+            padding: 8rem 2rem 4rem;
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)),
+                        url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 150px;
+            background: linear-gradient(transparent, var(--background));
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-text {
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .button {
+            padding: 1rem 2rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 0.9rem;
+        }
+
+        .button:hover {
+            transform: translateY(-2px);
+        }
+
+        .button-primary {
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            color: white;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.3);
+        }
+
+        .button-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--primary);
+        }
+
+        .featured-games {
+            padding: 6rem 2rem;
+            background: var(--background);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+
+        .games-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .game-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .game-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .game-content {
+            padding: 1.5rem;
+        }
+
+        .game-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .game-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .game-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .game-rating {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .game-platform {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+            }
+
+            .button {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="nav-content">
+            <div class="logo">GAME GALAXY</div>
+            <ul class="nav-links">
+                <li><a href="#games">Games</a></li>
+                <li><a href="#news">News</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#community">Community</a></li>
+                <li><a href="#store">Store</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">Level Up Your Gaming Experience</h1>
+                <p class="hero-subtitle">Discover the latest games, connect with players worldwide, and experience gaming like never before.</p>
+                
+                <div class="cta-buttons">
+                    <a href="http://localhost/signup/index.php" class="button button-primary">Join Now</a>
+                    <button class="button button-secondary" onclick="browseGames()">Browse Games</button>
+                </div>
+                
+                <script>
+    
+                    function browseGames() {
+                        // Scroll to the games section
+                        const gamesSection = document.getElementById('gamesGrid');
+                        if (gamesSection) {
+                            gamesSection.scrollIntoView({ behavior: 'smooth' });
+                        } else {
+                            alert("Games section not found.");
+                        }
+                    }
+                </script>
+                
+                
+                
+                
+                <!-- <div class="cta-buttons">
+                    <a href="#join" class="button button-primary">Join Now</a>
+                    <a href="#browse" class="button button-secondary">Browse Games</a>
+                </div> -->
+            </div>
+        </div>
+    </section>
+
+    <section class="featured-games">
+        <h2 class="section-title">Featured Games</h2>
+        <div class="games-grid" id="gamesGrid">
+            <!-- Games will be added dynamically -->
+        </div>
+    </section>
+
+    <script>
+        // Sample game data
+        const games = [
+            {
+                title: "Cyber Revolution",
+                description: "Immerse yourself in a dystopian future where technology rules supreme.",
+                image: "/api/placeholder/400/200",
+                rating: "9.5",
+                platform: "PC, PS5, Xbox"
+            },
+            {
+                title: "Fantasy Legends",
+                description: "Embark on an epic journey through mystical realms and ancient prophecies.",
+                image: "/api/placeholder/400/200",
+                rating: "9.2",
+                platform: "PC, PS5"
+            },
+            {
+                title: "Speed Demons",
+                description: "Race through neon-lit streets in the most advanced racing simulation yet.",
+                image: "/api/placeholder/400/200",
+                rating: "8.9",
+                platform: "All Platforms"
+            },
+            {
+                title: "Space Odyssey",
+                description: "Explore the vast cosmos and build your own galactic empire.",
+                image: "/api/placeholder/400/200",
+                rating: "9.1",
+                platform: "PC, Xbox"
+            }
+        ];
+
+        // Populate games grid
+        const gamesGrid = document.getElementById('gamesGrid');
+        games.forEach(game => {
+            const gameCard = document.createElement('div');
+            gameCard.className = 'game-card';
+            gameCard.innerHTML = `
+                <img src="${game.image}" alt="${game.title}" class="game-image">
+                <div class="game-content">
+                    <h3 class="game-title">${game.title}</h3>
+                    <p class="game-description">${game.description}</p>
+                    <div class="game-meta">
+                        <span class="game-rating">★ ${game.rating}</span>
+                        <span class="game-platform">${game.platform}</span>
+                    </div>
+                </div>
+            `;
+            gamesGrid.appendChild(gameCard);
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('.nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>

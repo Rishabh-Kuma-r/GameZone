@@ -1,0 +1,258 @@
+/* General Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #111;
+  color: #fff;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  background: url('bg1.jpg') center/cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.hero-overlay {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 15px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+}
+
+.hero span {
+  color: #ff6f61;
+}
+
+.hero p {
+  margin: 10px 0;
+  font-size: 1.2rem;
+}
+
+.hero .btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff6f61;
+  color: #fff;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  transition: background 0.3s ease;
+}
+
+.hero .btn:hover {
+  background: #ffbb33;
+}
+
+/* Navbar */
+.navbar {
+  background: #282828;
+  padding: 10px 0;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.navbar ul li a {
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar ul li a:hover {
+  color: #ff6f61;
+}
+
+/* Section Styles */
+.section {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  color: #ffbb33;
+}
+
+/* Game Grid */
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.game-card {
+  height: 300px;
+  width: 300px;
+  background-image: url('carxhigh.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background: #222; */
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game-card:hover {
+  transform: translateY(-10px);
+}
+
+.game-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* .card-content {
+  padding: 15px;
+  align-items: end;
+} */
+
+/* .card-content h3 {
+  color: #ff6f61;
+  margin-bottom: 10px;
+} */
+
+/* .card-content p {
+  font-size: 0.9rem;
+} */
+
+/* About Section */
+.about {
+  background: linear-gradient(to right, #ff6f61, #ffbb33);
+  color: #fff;
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+/* Footer */
+.footer {
+  background: #282828;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.game2-card {
+  height: 300px;
+  width: 300px;
+  background-image: url('ninja\ hero.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  /* background: #222; */
+  border-radius: 15px;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.game2-card:hover {
+  transform: translateY(-10px);
+}
+
+.game2-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+
+
+.game1{
+  background-image: url(carxhigh.png);
+  background-size: cover;
+  width: 100%;
+    height: 100%;
+    max-width: 300px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  
+}
+
+.game2{
+  background-image: url(ninja\ hero.png);
+  background-size: cover;
+  width: 100%;
+    height: 100%;
+    max-width: 300px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  
+}
+
+.game3{
+  background-image: url(snake.jpg);
+  background-size: cover;
+  width: 100%;
+    height: 100%;
+    max-width: 300px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  
+}
+
+.game4{
+  background-image: url(game4.jpg);
+  background-size: cover;
+  width: 100%;
+    height: 100%;
+    max-width: 300px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  
+}
+
+.game5{
+  background-image: url(game5.jpg);
+  background-size: cover;
+  width: 100%;
+    height: 100%;
+    max-width: 300px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  
+}
+
+.game6{
+  background-image: url(typing.png);
+  background-size: cover;
+  width: 100%;
+    height: 100%;
+    max-width: 300px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  
+}
